@@ -285,37 +285,38 @@ void CountSort(int A[],int n){
     
 }
 
-// struct BinNode
-// {
-//     /* data */
-//     int value;
-//     BinNode *node;
-// };
+struct BinNode
+{
+    /* data */
+    int value;
+    BinNode *node;
+};
 
 
-// void BinSort(int A[],int n){
-//     printf("BinSort\n");
-//     int max,i,j;
-//     max=findMax(A,n);
-//     //bins array declarations
-//     BinNode *bins;
-//     //bins array init
-//     bins=(BinNode *)malloc((max+1)*sizeof(BinNode));
-//     //initializing null for all
-//     for ( i = 0; i < max+1; i++)
-//     {
-//         /* code */
-//         bins[i]=NULL;
-//     }
-//     for ( i = 0; i < max+1; i++)
-//     {
-//         /* code */
-//         printf("%s ",bins[i]);
-//     }
+void BinSort(int A[],int n){
+    printf("BinSort\n");
+    int max,i,j;
+    max=findMax(A,n);
+    //bins array declarations
+    BinNode bins[max+1];
+    //bins array init
+    // BinNode bins[max+1]=(BinNode *)malloc((max+1)*sizeof(BinNode));
+
+    //initializing null for all
+    for ( i = 0; i < max+1; i++)
+    {
+        /* code */
+        bins[i]=NULL;
+    }
+    for ( i = 0; i < max+1; i++)
+    {
+        /* code */
+        printf("%s\n ",bins[i]);
+    }
     
     
     
-// }
+}
 
 void RadixSort(int A[],int n){
 
@@ -387,9 +388,9 @@ int main()
     // IMergeSort(A, n);
     // RecursiveMergeSort(A,0,n-1);
     // CountSort(A,n);
-    // BinSort(A,n);
+    BinSort(A,n);
     // ShellSort(A,n);
-    myCodeSchoolShellSort(A,n);
+    // myCodeSchoolShellSort(A,n);
     logArray(A, n);
     return 0;
 }
