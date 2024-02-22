@@ -157,7 +157,88 @@ void treeFun(int n){
 //          |___ C
 // forms a cycle
 
+void funB(int n);
 
+void funA(int n){
+    if(n>0){
+        printf("%d ",n);
+        funB(n-1);
+    }
+}
+
+void funB(int n){
+    if(n>1){
+        printf("%d ",n);
+        funA(n/2);
+    }
+}
+
+// Nested Recursion
+
+// fn call takes again fn call as param
+int nestedFun(int n){
+    if(n>100){
+        return n-10;
+    }
+    return nestedFun(nestedFun(n+11));
+}
+
+// Sum of first n natural numbers
+
+// 1 + 2 + 3 + ....+ n
+// sum(n)=1 + 2 + 3 + ....(n-1)+ n
+// sum(n)=sum(n-1)+n
+
+// sum(n) = 0              n=0
+//          sum(n-1)+n     n>0
+
+// int sum(int n){
+//     if(n==0){
+//         return 0;
+//     }else{
+//         return sum(n-1)+n;
+//     }
+// }
+
+// math formula n*(n+1)/2
+
+// Factorial of a number
+
+// n! = 1 * 2 * 3* ... * n
+// fact(n) =  1 * 2 * 3* ... (n-1)* n
+// fact(n)=fact(n-1)*n
+
+// fact(n)
+//  1   n=0
+//fact(n-1)*n   n>0
+
+int fact(int n){
+    if(n==0){
+        return 1;
+    }
+    return fact(n-1)*n;
+}
+
+// Exponent m^n
+
+int pow(int m,int n){
+    if(n==0){
+        return 1;
+    }
+    return pow(m,n-1)*m;
+}
+
+int reducedPow(int m,int n){
+    if(n==0){
+        return 1;
+    }
+    if(n%2==0){
+        return reducedPow(m*m,n/2);
+    }else{
+        return m*reducedPow(m*m,(n-1)/2);
+    }
+
+}
 
 
 int main(){
@@ -165,8 +246,15 @@ int main(){
     // tailfun(x);
     // int y=fun(x);
     // printf("%d",y);
-    int treeInput=3;
-    treeFun(treeInput);
+    // int treeInput=3;
+    // treeFun(treeInput);
+    // funA(10);
+    // int r;
+    // r=nestedFun(30);
+    // printf("%d ",r);
+    // int fac=fact(5);
+    // printf("%d ",fac);
+    printf("%d ",reducedPow(2,9));
     return 0;
 }
 
